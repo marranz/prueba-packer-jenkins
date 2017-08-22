@@ -13,7 +13,7 @@
       "inline": [
           "sudo apt-get update" ,
           "sudo apt-get install curl wget nmap nano vim -y",
-          "touch /testfile"
+          "sudo touch /testfile"
       ]
     }
   ]
