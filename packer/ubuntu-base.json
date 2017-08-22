@@ -1,0 +1,22 @@
+{
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{env `aws_access_key`}}",
+    "secret_key": "{{env `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami" : "ami-cd0f5cb6",
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "ubuntu-base {{timestamp}}"
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+          "sudo apt-get update" ,
+          "sudo apt-get install curl wget nmap nano vim -y"
+      ]
+    }
+  ]
+}
+
