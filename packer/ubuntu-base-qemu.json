@@ -1,0 +1,28 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "iso_url": "/home/mijack/test1.img",
+      "iso_checksum_type" : "md5",
+      "iso_checksum" : "29dd45d90603c61c615e33c707bd074c",
+      "disk_size": 5000,
+      "format": "qcow2",
+      "accelerator": "kvm",
+      "ssh_username": "ubuntu",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "30s",
+      "vm_name": "tdhtest"
+  }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+          "sudo apt-get update" ,
+          "sudo apt-get install curl wget nmap nano vim -y",
+          "sudo touch /testfile"
+      ]
+    }
+  ]
+}
+
